@@ -1,0 +1,22 @@
+{
+  "name": "task3final",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^18.15.11",
+    "typescript": "^5.0.4"
+  },
+  "dependencies": {
+    "abitype": "^0.7.1",
+    "ethers": "^6.3.0"
+  }
+}
