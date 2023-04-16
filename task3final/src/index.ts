@@ -15,24 +15,54 @@ async function main(user_address: string, the_contract : contract_interface, the
     const lovely_contract = new ethers.Contract(the_contract.address, the_contract.abi, provider);
 
     lovely_contract.on( the_events[0].event_name,
-        (key,account,collateralToken,indexToken,collaterDelta,sizeDelta,isLong,price,fee) => {
+        (key,account,collateralToken,indexToken,collateralDelta,sizeDelta,isLong,price,fee) => {
             if(account == user_address){
-                console.log(`${user_address} just increased his position on GMX`);
-                console.log(``)
+                console.log(`${account} just increased his position on GMX`);
+                console.log(`Here are the relevant event parameters :`);
+                // I could make stringify json object
+                console.log(`key: ${key} `);
+                console.log(`collateralToken: ${collateralToken}`);
+                console.log(`indexToken: ${indexToken}`);
+                console.log(`collateralDelta: ${collateralDelta}`);
+                console.log(`sizeDelta: ${sizeDelta}`);
+                console.log(`isLong: ${isLong}`);
+                console.log(`price: ${price}`);
+                console.log(`fee: ${fee}`);
             }
     } );
 
     lovely_contract.on( the_events[1].event_name,
         (key,account,collateralToken,indexToken,collateralDelta,sizeDelta,isLong,price,fee) =>{
             if(account == user_address){
-
+                console.log(`${account} just decreased his position on GMX`);
+                console.log(`Here are the relevant event parameters :`);
+                // I could make stringify json object
+                console.log(`key: ${key} `);
+                console.log(`collateralToken: ${collateralToken}`);
+                console.log(`indexToken: ${indexToken}`);
+                console.log(`collateralDelta: ${collateralDelta}`);
+                console.log(`sizeDelta: ${sizeDelta}`);
+                console.log(`isLong: ${isLong}`);
+                console.log(`price: ${price}`);
+                console.log(`fee: ${fee}`);
             }
     }  )
 
     lovely_contract.on( the_events[2].event_name,
         (key,account,collateralToken,indexToken,isLong,size,collateral,reserveAmount, realisedPnl, markPrice) =>{
             if(account == user_address){
-
+                console.log(`${account} just liquidated his position on GMX`);
+                console.log(`Here are the relevant event parameters :`);
+                // I could make stringify json object
+                console.log(`key: ${key} `);
+                console.log(`collateralToken: ${collateralToken}`);
+                console.log(`indexToken: ${indexToken}`);
+                console.log(`size: ${size}`);
+                console.log(`collateral: ${collateral}`);
+                console.log(`isLong: ${isLong}`);
+                console.log(`reserveAmount: ${reserveAmount}`);
+                console.log(`realisedPnl: ${realisedPnl}`);
+                console.log(`markPrice: ${markPrice}`);
             }
     } )
 }
