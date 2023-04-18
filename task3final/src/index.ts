@@ -67,14 +67,19 @@ async function main(user_address: string, the_contract : contract_interface, the
     } )
 }
 
+
 const gmx_contract : contract_interface = { address : '0x489ee077994B6658eAfA855C308275EAd8097C4A', abi : vaultabi };
 const gmx_event_1 : contract_event = { contract : gmx_contract, event_name : "IncreasePosition" };
 const gmx_event_2 : contract_event = { contract : gmx_contract, event_name : "DecreasePosition" };
 const gmx_event_3 : contract_event = { contract : gmx_contract, event_name : "LiquidatePosition" };
 const events_list : contract_event[] = [ gmx_event_1, gmx_event_2, gmx_event_3 ] ;
 
+const usdc_contract : contract_interface = {address : '0xFF970A61A04b1cA14834A43f5dE4533eBDDB5CC8', abi : erc20abi};
+
 const the_address = '';
 main(the_address,gmx_contract,events_list);
+
+
 
 
 
